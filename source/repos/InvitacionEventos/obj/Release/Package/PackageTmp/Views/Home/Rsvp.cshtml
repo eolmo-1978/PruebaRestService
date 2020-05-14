@@ -1,0 +1,37 @@
+﻿@model InvitacionEventos.Models.Invitaciones
+
+@{ ViewBag.Title = "Entrada de petición"; }
+<link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+<div class="panel panel-primary">
+    <div class="panel-heading"><h4>RSVP</h4></div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>Tu nombre:</label>
+                @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Tu correo:</label>
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Tu telefono:</label>
+                @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Asistencia</label>
+                @Html.DropDownListFor(x => x.Asistira, new[] {
+                new SelectListItem() {Text = "Si, estaré en el evento",
+                Value = bool.TrueString},
+                new SelectListItem() {Text = "No, no podré asistir",
+                Value = bool.FalseString}
+                }, "Elige una opcion", new { @class = "form-control" })
+            </div>
+            <div class="text-center">
+                <input class="btn btn-success" type="submit" value="Enviar petición" />
+            </div>
+        }
+    </div>
+</div>

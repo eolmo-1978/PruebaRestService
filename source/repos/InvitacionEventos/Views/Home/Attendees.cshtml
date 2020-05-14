@@ -1,0 +1,15 @@
+﻿@model IEnumerable<InvitacionEventos.Models.Invitaciones>
+
+@if (Model.Count() == 1)
+{
+    <p>Has aceptado el evento!</p>
+}
+else
+{
+    <p>
+        <div class="alert-info">
+            Aquí está la lista de personas que asistirán al evento: @string.Join(", ",
+Model.Select(x => x.Nombre))
+        </div>
+    </p>
+}

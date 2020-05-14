@@ -1,0 +1,16 @@
+﻿@model InvitacionEventos.Models.Invitaciones
+
+@{ ViewBag.Title = "Conformidad";}
+<h1>Gracias, @Model.Nombre!</h1>
+<div class="panel-body">
+    @if (Model.Asistira == true)
+    {
+        <div class="alert-success">Gracias por tu disposición, te esperamos</div>
+        @Html.Action("Attendees", "Home")
+    }
+    else
+    {
+        <div class="alert-danger">Sentimos no poder contar contigo en esta ocasión,te esperamos en próximos eventos</div>
+    }
+</div>
+<div class="btn-link" style="border-bottom-style:double">@Html.ActionLink("Regresar al inicio", "Index")</div>
